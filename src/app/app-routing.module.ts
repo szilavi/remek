@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'store',
     component: StoreComponent,
   },
+  {
+    path: '**',
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({
