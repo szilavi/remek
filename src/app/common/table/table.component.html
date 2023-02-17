@@ -3,6 +3,7 @@
     <thead>
       <tr>
         <th *ngFor="let col of getFilteredCols()">{{ col.text }}</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -10,6 +11,7 @@
         <td *ngFor="let col of getFilteredCols()">
           {{ game[col.key] }}
         </td>
+        <td><button class="buybutton" type="button">Buy Now!</button></td>
       </tr>
     </tbody>
   </table>
