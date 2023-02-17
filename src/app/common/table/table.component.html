@@ -1,0 +1,16 @@
+<div class="col-12">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th *ngFor="let col of cols">{{ col.text }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of list$ | async">
+        <td *ngFor="let col of getFilteredCols()">
+          <ng-container *ngIf="col.visible">{{ game[col.key] }} </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
