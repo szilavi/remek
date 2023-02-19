@@ -1,22 +1,45 @@
 <div class="col-12">
-  <table class="table table-stripped">
+  <table
+    *ngIf="list$ | async as list; else loading"
+    class="tui-table tui-bg-blue-white table table-borderless table-responsive hovered-cyan"
+  >
     <thead>
       <tr>
         <th *ngFor="let col of getFilteredCols()">
           {{ col.text }}
         </th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let game of list$ | async">
+      <tr [style.height.px]="55" *ngFor="let game of list$ | async">
         <td *ngFor="let col of getFilteredCols()">
           {{ game[col.key] | symbol : col.key }}
         </td>
-        <td class="text-end">
-          <button class="buybutton" type="button">Buy Now!</button>
+        <td class="text-center">
+          <button
+            class="tui-button tui-modal-button white-text"
+            data-modal="modal"
+          >
+            More info
+          </button>
+        </td>
+        <td class="text-center">
+          <button class="tui-button blue-168 white-text" type="button">
+            Buy Now!
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center align-items-center">
+    <div>
+      <img src="../../../assets/images/Msdos-icon.svg.png" alt="loading..." />
+      <h1>Loading{{ loadingDots }}</h1>
+    </div>
+  </div>
+</ng-template>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game } from 'src/app/model/game';
 import { SymbolPipe } from 'src/app/pipe/symbol.pipe';
@@ -11,13 +11,24 @@ import { GameService } from 'src/app/service/game.service';
   styleUrls: ['./table.component.scss'],
   providers: [SymbolPipe],
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
   config: ConfigService = inject(ConfigService);
   gameService: GameService = inject(GameService);
 
   list$: Observable<Game[]> = this.gameService.getAll();
 
   cols: ITableCol[] = this.config.gameCols;
+
+  public loadingDots = '';
+
+  ngOnInit() {
+    setInterval(() => {
+      this.loadingDots += '.';
+      if (this.loadingDots.length > 3) {
+        this.loadingDots = '';
+      }
+    }, 200);
+  }
 
   getFilteredCols() {
     return this.cols.filter((col) => col.visible);
