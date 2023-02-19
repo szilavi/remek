@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game } from 'src/app/model/game';
+import { SymbolPipe } from 'src/app/pipe/symbol.pipe';
 import { ConfigService, ITableCol } from 'src/app/service/config.service';
 import { GameService } from 'src/app/service/game.service';
 
@@ -8,6 +9,7 @@ import { GameService } from 'src/app/service/game.service';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
+  providers: [SymbolPipe],
 })
 export class TableComponent {
   config: ConfigService = inject(ConfigService);

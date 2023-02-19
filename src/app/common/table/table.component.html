@@ -11,9 +11,9 @@
     <tbody>
       <tr *ngFor="let game of list$ | async">
         <td *ngFor="let col of getFilteredCols()">
-          {{ game[col.key] }}
+          {{ game[col.key] | symbol : col.key }}
         </td>
-        <td class="table-active">
+        <td class="text-end">
           <button class="buybutton" type="button">Buy Now!</button>
         </td>
       </tr>
