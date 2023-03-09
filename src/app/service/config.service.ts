@@ -10,14 +10,14 @@ export interface ITableCol {
   providedIn: 'root',
 })
 export class ConfigService {
-  gameCols: ITableCol[] = [
+  productCols: ITableCol[] = [
     { key: '_id', text: '#', visible: false },
-    { key: 'year', text: 'Release Date', visible: false },
-    { key: 'title', text: 'Title', visible: true },
+    { key: 'gameId', text: 'Game', visible: true },
+    { key: 'seller', text: 'Shop', visible: true },
+    { key: 'added', text: 'Added', visible: false },
+    { key: 'status', text: 'Status', visible: false },
     { key: 'description', text: 'Description', visible: false },
     { key: 'price', text: 'Price', visible: true },
-    { key: 'pieces', text: 'Pieces', visible: false },
-    { key: 'lastAvaiable', text: 'Avaiable', visible: false },
   ];
   constructor() {}
 }

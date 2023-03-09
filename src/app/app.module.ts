@@ -12,6 +12,8 @@ import { AboutusComponent } from './page/aboutus/aboutus.component';
 import { LoginComponent } from './page/login/login.component';
 import { TableComponent } from './common/table/table.component';
 import { SymbolPipe } from './pipe/symbol.pipe';
+import { MoreInfoComponent } from './page/more-info/more-info.component';
+import { BuyNowComponent } from './page/buy-now/buy-now.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SymbolPipe } from './pipe/symbol.pipe';
     LoginComponent,
     TableComponent,
     SymbolPipe,
+    MoreInfoComponent,
+    BuyNowComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

@@ -13,20 +13,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr [style.height.px]="55" *ngFor="let game of list$ | async">
+      <tr [style.height.px]="55" *ngFor="let product of list$ | async">
         <td *ngFor="let col of getFilteredCols()">
-          {{ game[col.key] | symbol : col.key }}
+          {{ product[col.key] | symbol : col.key }}
         </td>
         <td class="text-center">
           <button
             class="tui-button tui-modal-button white-text"
-            data-modal="modal"
+            type="button"
+            [routerLink]="['/store/more-info', product._id]"
           >
             More info
           </button>
         </td>
         <td class="text-center">
-          <button class="tui-button blue-168 white-text" type="button">
+          <button
+            class="tui-button blue-168 white-text"
+            type="button"
+            [routerLink]="['/store/buy-now', product._id]"
+          >
             Buy Now!
           </button>
         </td>
